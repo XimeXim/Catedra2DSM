@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --trace-warnings --watch --env-file=env/.env src/app.js",
-    "db:migrate:up": "npx sequelize-cli db:migrate",
-    "db:migrate:down": "npx sequelize-cli db:migrate:undo",
-    "db:seed": "npx sequelize-cli db:seed:all"
+    "bd:migrate:up": "npx sequelize-cli db:migrate",
+    "bd:migrate:down": "npx sequelize-cli db:migrate:undo",
+    "bd:seed": "npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",
