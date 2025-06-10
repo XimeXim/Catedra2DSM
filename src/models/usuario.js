@@ -1,0 +1,64 @@
+const {DataTypes, Model} = require("sequelize");
+const bd = require("../config/database.js");
+
+class Usuario extends Model {
+    static id;
+    static nombre;
+    static apellido;
+    static correo;
+    static contrasena;
+    static token;
+    static isActive;    
+}
+
+Usuario.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        nombre: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        apellido: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        correo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+         contrasena: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        token:{
+            type: DataTypes.STRING,
+            defaultValue:null
+        },
+        isActive:{
+            type :DataTypes.BOOLEAN,
+            defaultValue:true
+        }
+    },
+    {
+        sequelize: bd,
+        modelName: "Usuario",
+        timestamps: true,
+    }
+);
+//Relacion usurario-libros
+Usuario.Libro = Usuario.hasMany(require("./libro"),{foreignKey: "id_libro"});
+
+Usuario.prototype.toJSON = function () {
+    const {contrasena, ...usuario} = this.get();
+    delete usuario.contrasena;
+    return usuario;
+
+}
+
+module.exports = Usuario;
+    
