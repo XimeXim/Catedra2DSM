@@ -20,11 +20,11 @@ Usuario.init(
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     apellido: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     correo: {
       type: DataTypes.STRING,
