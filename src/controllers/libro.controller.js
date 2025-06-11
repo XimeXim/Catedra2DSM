@@ -191,21 +191,38 @@ const restoreBook = async (req = request, res = response) => {
     const libro = await Libro.findByPk(id);
 
     if (!libro) {
-      return res.status(404).json({ mensaje: "Libro no encontrado" });
+      return res.status(404).json({ 
+        success: false,
+        error: true,
+        message: "Libro no encontrado" 
+      });
     }
 
     // Restaura solo si esta eliminado
     if (!libro.eliminado) {
-      return res.status(400).json({ mensaje: "El libro se encuentra activo" });
+      return res.status(400).json({ 
+        success: false,
+        error: true,
+        message: "El libro se encuentra activo" 
+      });
     }
 
     libro.eliminado = false;
     await libro.save();
 
-    res.json({ mensaje: "Libro restaurado exitosamente", libro });
+    res.json({ 
+      success: true,
+      error: false,
+      message: "Libro restaurado exitosamente", 
+      data: libro,
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Error al restaurar el libro" });
+    res.status(500).json({ 
+      success: false,
+      error: true,
+      message: "Error al restaurar el libro" 
+    });
   }
 };
 

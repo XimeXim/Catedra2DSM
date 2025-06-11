@@ -52,6 +52,12 @@ Libro.init(
   }
 );
 
+Libro.associate = (models) => {
+  Libro.hasMany(models.Prestamo, {
+    foreignKey: "id_libro",
+    as: "prestamos",
+  });
+};
 
 Libro.prototype.toJSON = function () {
   const values = { ...this.get() };

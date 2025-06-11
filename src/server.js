@@ -56,6 +56,7 @@ class Server {
   routes() {
     this.app.use(this.paths.auth, require("./routes/auth.routes"));
     this.app.use(this.paths.auth, require("./routes/libro.routes"));
+    this.app.use(this.paths.auth, require("./routes/prestamo.routes"));
   }
 
   listen() {

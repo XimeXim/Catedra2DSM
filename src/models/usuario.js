@@ -51,6 +51,13 @@ Usuario.init(
   }
 );
 
+Usuario.associate = (models) => {
+  Usuario.hasMany(models.Prestamo, {
+    foreignKey: "id_usuario",
+    as: "prestamos",
+  });
+};
+
 Usuario.prototype.toJSON = function () {
   const { contrasena, ...usuario } = this.get();
   delete usuario.contrasena;

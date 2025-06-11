@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const validateJWT = require("../middlewares/validateJWT")
+const validateJWT = require("../middlewares/validateJWT");
 const { addBook,getBooks,getBookById,updateBook,deleteBook, restoreBook } = require("../controllers/libro.controller");
 //LIBROS
 //Add/book

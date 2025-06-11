@@ -54,12 +54,17 @@ Prestamo.init(
   }
 );
 
-Prestamo.Usuario = Prestamo.belongsTo(require("./usuario"), {
-  foreignKey: "id_usuario",
-});
-Prestamo.Libro = Prestamo.belongsTo(require("./libro"), {
-  foreignKey: "id_libro",
-});
+Prestamo.associate = (models) => {
+  Prestamo.belongsTo(models.Usuario, {
+    foreignKey: "id_usuario",
+    as: "usuario",
+  });
+
+  Prestamo.belongsTo(models.Libro, {
+    foreignKey: "id_libro",
+    as: "libro",
+  });
+};
 
 Prestamo.prototype.toJSON = function () {
   const values = { ...this.get() };
