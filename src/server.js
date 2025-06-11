@@ -15,7 +15,7 @@ class Server {
     this.server = require("http").createServer(this.app);
 
     this.paths = {
-      users: "/api",
+      auth: "/api",
     };
 
     // Database
@@ -54,7 +54,8 @@ class Server {
   }
 
   routes() {
-    this.app.use(this.paths.users, require("./routes/auth.routes"));
+    this.app.use(this.paths.auth, require("./routes/auth.routes"));
+    this.app.use(this.paths.auth, require("./routes/libro.routes"));
   }
 
   listen() {

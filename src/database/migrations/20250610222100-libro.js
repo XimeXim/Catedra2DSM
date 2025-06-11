@@ -13,11 +13,11 @@ module.exports = {
       },
       titulo: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       autor: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       genero: {
         type: Sequelize.STRING,

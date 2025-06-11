@@ -50,8 +50,6 @@ Usuario.init(
     timestamps: true,
   }
 );
-//Relacion usurario-libros
-Usuario.Libro = Usuario.hasMany(require("./libro"), { foreignKey: "id_libro" });
 
 Usuario.prototype.toJSON = function () {
   const { contrasena, ...usuario } = this.get();

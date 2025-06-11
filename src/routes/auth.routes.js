@@ -11,22 +11,6 @@ router.post("/register", register);
 router.post("/login", login);
 //Me
 router.get("/me",validateJWT, me);
-//Verify token
-//router.get("/validate-token", validateToken);
-
-//LIBROS
-//Add/book
-//router.post("/add/book", addBook);
-//Books listar libros
-//router.get("/books", getBooks);
-//Book/id detalle
-//router.get("/book/:id", getBookById);
-//Book/id editar
-//router.put("/book/:id", updateBook);
-//Book/id eliminar
-//router.delete("/book/:id", deleteBook);
-//Restore/book/id reintegrar libro
-//router.put("/restore/book/:id", restoreBook);
 
 //PRESTAMOS
 //Loan

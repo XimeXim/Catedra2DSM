@@ -20,11 +20,11 @@ Libro.init(
     },
     titulo: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     autor: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     genero: {
       type: DataTypes.STRING,
@@ -52,7 +52,6 @@ Libro.init(
   }
 );
 
-//Libro.Role = Usuario.belongsTo(require("./rol"),{foreignKey: "id_rol"});
 
 Libro.prototype.toJSON = function () {
   const values = { ...this.get() };
